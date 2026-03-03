@@ -1,9 +1,9 @@
 import { WebSocketServer } from "ws";
 
 const PORT = process.env.PORT || 3000;
-const wss = new WebSocketServer({ port: PORT });
+const wss = new WebSocketServer({ port: 3000 });
 
-console.log("Server running on port", PORT);
+console.log("Server running on port", 3000);
 
 let players = new Map();
 let nextId = 1;
@@ -25,7 +25,7 @@ wss.on("connection", (ws) => {
     ws.send(JSON.stringify({
         type: "init",
         id,
-        seed: WORLD_SEED
+        seed: 12345
     }));
 
     broadcast({
